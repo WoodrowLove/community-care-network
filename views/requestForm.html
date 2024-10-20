@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Help Request</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <h1>Create a New Help Request</h1>
+  <form action="/requests" method="POST">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" required><br>
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" required></textarea><br>
+
+    <label for="location">Location:</label>
+    <input type="text" id="location" name="location" required><br>
+
+    <label for="category">Category:</label>
+    <select id="category" name="category" required>
+      <option value="Groceries">Groceries</option>
+      <option value="Yard Work">Yard Work</option>
+      <option value="Tutoring">Tutoring</option>
+      <option value="Other">Other</option>
+    </select><br>
+
+    <label for="time_frame">Time Frame:</label>
+    <input type="text" id="time_frame" name="time_frame" required><br>
+
+    <button type="submit">Submit Request</button>
+  </form>
+</body>
+</html>

@@ -1,4 +1,6 @@
 // Define Offer Schema
+const mongoose = require('mongoose');
+
 const OfferSchema = new mongoose.Schema({
     request: {
       type: mongoose.Schema.Types.ObjectId,
