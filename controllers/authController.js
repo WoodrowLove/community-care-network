@@ -5,30 +5,44 @@ const passport = require('passport');
 // User Registration
 exports.registerUser = async (req, res) => {
   const { name, email, password } = req.body;
-
   try {
-    // Check if the user already exists
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      return res.status(400).json({ message: 'User already exists' });
+      req.flash('error_msg', 'User already exists');
+      return res.redirect('/auth/register');
     }
-
-    // Create new user
     const newUser = new User({ name, email, password });
     await newUser.save();
-    
-    res.status(201).json({ message: 'User registered successfully' });
+    console.log('User saved:', newUser); // Check user saving
+    req.flash('success_msg', 'You are now registered and can log in');
+    res.redirect('/auth/login');
   } catch (error) {
+    console.log('Error saving user:', error);
     res.status(500).json({ message: 'Server error' });
   }
 };
 
 // User Login
 exports.loginUser = (req, res, next) => {
-  passport.authenticate('local', {
-    successRedirect: '/requests',  // Redirect to help requests on success
-    failureRedirect: '/auth/login',  // Redirect to login page on failure
-    failureFlash: true
+  passport.authenticate('local', (err, user, info) => {
+    if (err) {
+      console.log('Authentication error:', err);
+      return next(err);
+    }
+    if (!user) {
+      console.log('Login failed:', info.message);
+      req.flash('error_msg', info.message);
+      return res.redirect('/auth/login');
+    }
+    req.logIn(user, (err) => {
+      if (err) {
+        console.log('Login error:', err);
+        return next(err);
+      }
+      console.log('Login successful:', user);
+      req.flash('success_msg', 'Login successful');
+      return res.redirect('/');
+    });
   })(req, res, next);
 };
 
@@ -38,6 +52,8 @@ exports.logoutUser = (req, res) => {
     if (err) {
       return res.status(500).json({ message: 'Logout failed' });
     }
+    req.flash('success_msg', 'You are logged out');
     res.redirect('/auth/login');
   });
 };
+

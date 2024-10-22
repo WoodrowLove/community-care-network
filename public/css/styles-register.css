@@ -1,0 +1,103 @@
+/* General layout */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;  /* Light background for the registration page */
+  }
+  
+  /* Flexbox container */
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;  /* Make the container fill the viewport */
+    max-width: 1200px;
+    padding: 1rem;
+  }
+  
+  /* Registration box styling */
+  .register-box {
+    background-color: #2D4459;  /* Dark background for the box */
+    padding: 3rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Center elements inside the box */
+  }
+  
+  /* Flexbox adjustments for form inputs and button */
+  .register-box form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  /* Header and description styling */
+  .register-box h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #74563B;  /* Earthy text color to complement login */
+  }
+  
+  .register-box .description {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    color: #9498A1;  /* Softer description text */
+  }
+  
+  /* Input field styling */
+  .register-box input[type="text"], .register-box input[type="email"], .register-box input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #9498A1;  /* Light border color */
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #2D4459;
+    background-color: rgba(148, 152, 161, 0.1);  /* Subtle background color for inputs */
+  }
+  
+  /* Register button styling */
+  .register-box button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.25rem;
+    cursor: pointer;
+    background-color: #74563B;  /* Register button color */
+    color: white;
+  }
+  
+  .register-box button:hover {
+    background-color: #4E433B;  /* Darker shade on hover */
+  }
+  
+  /* Responsive design improvements */
+  @media (max-width: 768px) {
+    .register-box {
+      padding: 2rem;
+    }
+  
+    .register-box h1 {
+      font-size: 2rem;
+    }
+  
+    .register-box input[type="text"], .register-box input[type="email"], .register-box input[type="password"] {
+      padding: 12px;
+    }
+  
+    .register-box button {
+      font-size: 1.1rem;
+    }
+  }

@@ -1,0 +1,111 @@
+/* General layout */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;  /* Light background for the homepage */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Header styling */
+  header {
+    background-color: #2D4459;  /* Darker blue background for header */
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  header h1 {
+    margin: 0;
+    color: #FFFFFF;  /* White text color for the header */
+    font-size: 2.5rem;
+  }
+  
+  /* Search bar styling */
+  .search-container {
+    margin: 20px 0;
+    width: 90%;
+    max-width: 600px;
+  }
+  
+  #search {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2rem;
+    border: 2px solid #9498A1;  /* Border matching the theme */
+    border-radius: 5px;
+    outline: none;
+    color: black;  /* Black text for input field */
+    background-color: white;  /* White background for better contrast */
+  }
+  
+  #search::placeholder {
+    color: #9498A1;  /* Placeholder color */
+  }
+  
+  /* Request cards styling */
+  .request-list {
+    width: 90%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+    margin-bottom: 80px;  /* Space at the bottom for floating button */
+  }
+  
+  .request-card {
+    background-color: #74563B;  /* Earthy tone for the request cards */
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .request-card h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+  }
+  
+  .request-card p {
+    margin-bottom: 10px;
+    font-size: 1rem;
+  }
+  
+  .view-details {
+    padding: 10px 20px;
+    background-color: #4E433B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .view-details:hover {
+    background-color: #332521;
+  }
+  
+  /* Floating + button */
+  .floating-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #122537;
+    color: white;
+    font-size: 2rem;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  .floating-button:hover {
+    background-color: #9498A1;
+  }

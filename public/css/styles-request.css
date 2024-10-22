@@ -1,0 +1,96 @@
+/* General layout */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  /* Back button styling */
+  .back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #122537;
+    text-decoration: none;
+    font-size: 1.5rem;
+  }
+  
+  .back-button:hover {
+    color: #9498A1;
+  }
+  
+  /* Header styling */
+  header {
+    background-color: #2D4459;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  header h1 {
+    color: white;
+    font-size: 2.5rem;
+  }
+  
+  /* Form container */
+  .form-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Input and label styling */
+  .form-container label {
+    font-size: 1.2rem;
+    color: #2D4459;
+  }
+  
+  .form-container input, .form-container textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #9498A1;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: rgba(148, 152, 161, 0.1);
+    color: black;
+  }
+  
+  .form-container textarea {
+    height: 100px;
+    resize: none;
+  }
+  
+  .form-container input:focus, .form-container textarea:focus {
+    border-color: #74563B;
+    box-shadow: 0 0 5px rgba(116, 86, 59, 0.5);
+  }
+  
+  /* Submit button */
+  .form-container button {
+    background-color: #74563B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 1.25rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .form-container button:hover {
+    background-color: #4E433B;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }

@@ -1,4 +1,5 @@
 require('dotenv').config();  // Load environment variables from .env
+
 const express = require('express');
 const connectDB = require('./config/db'); // MongoDB connection function
 const bodyParser = require('body-parser');
@@ -16,6 +17,12 @@ const pageRoutes = require('./routes/pageRoutes');  // For frontend pages like h
 
 // Initialize Express
 const app = express();
+
+// Serve static files (like CSS, JS)
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Middleware to parse my form data
+app.use(express.urlencoded({ extended: true}));
 
 // Connect to MongoDB
 connectDB();  // Connect to MongoDB via the db.js file
@@ -51,11 +58,13 @@ app.use((req, res, next) => {
   next();
 });
 
-// Serve static files (like CSS, JS)
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Set view engine (if using views like EJS, Pug, etc.)
-// app.set('view engine', 'ejs');  // Uncomment if using EJS views
+// Redirect root URL to login if not authenticated
+app.get('/', (req, res) => {
+  if (!req.isAuthenticated()) {
+    return res.redirect('/login');
+  }
+  res.sendFile(path.join(__dirname, 'views', 'index.html'));
+});
 
 // Routes
 app.use('/', pageRoutes);         // Serve frontend pages
@@ -63,9 +72,14 @@ app.use('/auth', authRoutes);     // Authentication routes
 app.use('/requests', requestRoutes); // Help request routes
 app.use('/offers', offerRoutes);  // Offer routes
 
+// route forhelp request creation page
+app.get('/create-request', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'requestForm.html'));
+});
+
 // Fallback route for unknown endpoints
 app.use((req, res, next) => {
-  res.status(404).json({ message: 'Resource not found' });
+  res.status(404).send({ message: 'Resource not found' });
 });
 
 // Server setup

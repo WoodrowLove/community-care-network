@@ -3,33 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Create Help Request</title>
-  <link rel="stylesheet" href="/css/styles.css">
+  <title>Create New Request</title>
+  <link rel="stylesheet" href="/css/styles-request.css">
 </head>
 <body>
-  <h1>Create a New Help Request</h1>
-  <form action="/requests" method="POST">
-    <label for="title">Title:</label>
-    <input type="text" id="title" name="title" required><br>
+  <!-- Back to Home Button -->
+  <a href="/" class="back-button">&#8592; Home</a>
 
-    <label for="description">Description:</label>
-    <textarea id="description" name="description" required></textarea><br>
+  <!-- Header -->
+  <header>
+    <h1>Create New Request</h1>
+  </header>
 
-    <label for="location">Location:</label>
-    <input type="text" id="location" name="location" required><br>
+  <!-- Request Form -->
+  <div class="form-container">
+    <form action="/requests/new" method="POST">
+      <label for="title">Title</label>
+      <input type="text" id="title" name="title" required>
 
-    <label for="category">Category:</label>
-    <select id="category" name="category" required>
-      <option value="Groceries">Groceries</option>
-      <option value="Yard Work">Yard Work</option>
-      <option value="Tutoring">Tutoring</option>
-      <option value="Other">Other</option>
-    </select><br>
+      <label for="description">Description</label>
+      <textarea id="description" name="description" required></textarea>
 
-    <label for="time_frame">Time Frame:</label>
-    <input type="text" id="time_frame" name="time_frame" required><br>
+      <label for="location">Location</label>
+      <input type="text" id="location" name="location" required>
 
-    <button type="submit">Submit Request</button>
-  </form>
+      <label for="category">Category</label>
+      <input type="text" id="category" name="category" required>
+
+      <label for="timeframe">Time Frame</label>
+      <input type="text" id="timeframe" name="timeframe" required>
+
+      <button type="submit">Submit Request</button>
+    </form>
+  </div>
+
+  <script src="/js/scripts.js"></script>
 </body>
 </html>
