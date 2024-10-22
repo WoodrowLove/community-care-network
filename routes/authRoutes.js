@@ -16,11 +16,12 @@ router.post('/login', authController.loginUser);
 
 // @route   POST /auth/register
 // @desc    Register a new user
-router.post('auth/register', authController.registerUser);
+router.post('/auth/register', authController.registerUser);
 
 // @route   GET /auth/logout
 // @desc    Log out a user
-router.get('auth/logout', authController.logoutUser);
+router.get('/auth/logout', authController.logoutUser);
 
 module.exports = router;
+
 
