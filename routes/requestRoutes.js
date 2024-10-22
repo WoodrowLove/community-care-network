@@ -3,29 +3,20 @@ const router = express.Router();
 const requestController = require('../controllers/requestController');
 const { ensureAuthenticated } = require('../middleware/authMiddleware');
 
-// @route   POST /requests
-// @desc    Create a new help request
-// @access  Private (Authenticated users only)
+// Create a new request (POST)
 router.post('/', ensureAuthenticated, requestController.createRequest);
 
-// @route   GET /requests
-// @desc    Get all help requests
-// @access  Public
-router.get('/', requestController.getRequests);
+// Get all requests (GET)
+router.get('/', ensureAuthenticated, requestController.getRequests);
 
-// @route   GET /requests/:id
-// @desc    Get a specific help request by ID
-// @access  Public
-router.get('/:id', requestController.getRequestById);
+// Get requests by user (GET)
+router.get('/user', ensureAuthenticated, requestController.getUserRequests);
 
-// @route   PUT /requests/:id
-// @desc    Update a help request
-// @access  Private (Only request creator)
-router.put('/:id', ensureAuthenticated, requestController.updateRequest);
-
-// @route   DELETE /requests/:id
-// @desc    Delete a help request
-// @access  Private (Only request creator)
+// Delete a request (DELETE)
 router.delete('/:id', ensureAuthenticated, requestController.deleteRequest);
+
+// Mark a request as complete (PUT)
+router.put('/:id/complete', ensureAuthenticated, requestController.markAsComplete);
+
 
 module.exports = router;

@@ -7,6 +7,11 @@ router.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../views/index.html'));
 });
 
+// Serve manage offers/requests page
+router.get('/manage', (req, res) => {
+    res.sendFile(path.join(__dirname, '../views/manage.html'));
+  });  
+
 // This serves my login page
 router.get('login', (req, res) => {
     res.sendFile(path.join(__dirname, '../views/login.html'));

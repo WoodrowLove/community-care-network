@@ -109,3 +109,20 @@ body, html {
   .floating-button:hover {
     background-color: #9498A1;
   }
+
+  /* Manage Button Styling */
+.manage-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 20px;
+  background-color: #2D4459;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.manage-button:hover {
+  background-color: #122537;
+}
