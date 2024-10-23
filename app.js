@@ -68,7 +68,7 @@ app.get('/', (req, res) => {
 
 // Routes
 app.use('/', pageRoutes);         // Serve frontend pages
-app.use('/auth', authRoutes);     // Authentication routes
+app.use('/', authRoutes);     // Authentication routes
 app.use('/requests', requestRoutes); // Help request routes
 app.use('/offers', offerRoutes);  // Offer routes
 

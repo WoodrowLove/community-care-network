@@ -6,13 +6,13 @@ const authController = require('../controllers/authController');
 
 // @route   GET /login
 // @desc    Render login page
-router.get('/login', (req, res) => {
+router.get('/auth/login', (req, res) => {
   res.sendFile(path.join(__dirname, '../views/login.html'));
 });
 
 // @route   POST /login
 // @desc    Handle login from submission using passport
-router.post('/login', authController.loginUser);
+router.post('/auth/login', authController.loginUser);
 
 // @route   POST /auth/register
 // @desc    Register a new user
